@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="basic.css"/>
+    <title>LOAN_APK</title>
+</head>
+<body>
+    <div class="basic">
+    <form action="../kyc.html">
+        <h1 style="text-align:center;"><u>Basic Info</u></h1>
+        <table>
+             <tr>
+                <td><label for="name">Name*</label></td>
+                <td><input type="text" placeholder="name" id="name" name="name" required style="margin-left:-50%; width:146%"></td>
+              </tr>
+            <tr>
+                <td><label for="marital_status">Marital Status</label></td>
+                <td><input type="radio" name="marital_status" id="marital_status" value="Married" style="margin-left:-50%;" required>
+                <label>Married</label>
+                <input type="radio" name="marital_status" id="marital_status" value="Unmarried" required>
+                <label>Unmarried</label>
+            </td>
+            </tr>
+            <tr>
+                <td><label for="education_level">Educational Level*</label></td>
+                <td><input type="text" placeholder="education" id="education_level" name="education_level" style="margin-top:4%; margin-left:-50%; width:146%" required></td>
+            </tr>
+            <tr>
+            <td><label for="street_address">Street Address*</label></td>
+                <td><input type="text" placeholder="address" id="street_address" name="street_address" style="margin-top:4%; margin-left:-50%; width:146%" required></td>
+            </tr>
+            <tr>
+                <td><label for="years_of_residency">Years of Residency*</label></td>
+                <td><input type="date" id="years_of_residency" name="years_of_residency" style="width:95%; margin-top:4%; margin-left:-50%; width:146%" placeholder="dd-mm-yyyy" style="margin-top:4%" required></td>
+            </tr>
+            <tr>
+                <td>
+                    <hr style="width:158%">
+                </td>
+            </tr>
+            <tr>
+                <td><h1>Employment Details:</h1></td>
+            </tr>
+            <tr>
+                <td><label for="years_of_working">Years of Working*</label></td>
+                <td><input type="number" placeholder="Years" name="years_of_working" maxlength="2"; id="years_of_working" style="margin-top:4%; margin-left:-50%; width:146%" required></td>
+            </tr>
+            <tr>
+                <td><label for="job">Job/Profession*</label></td>
+                <td><input type="text"  placeholder="job" id="job" name="job" style="margin-top:4%; margin-left:-50%; width:146%"  required></td>
+            </tr>
+            <tr>
+                <td>
+                    <hr style="width:158%">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="current_address">Current Address*</label></td>
+                <td><input type="text"  placeholder="address" name="current_address" id="current_address" style="margin-top:4%; margin-left:-50%; width:146%" required></td>
+            </tr>
+            <tr>
+                <td><label for="company_name">Company Name</label></td>
+                <td><input type="text"  placeholder="company name" name="company_name" id="company_name" style="margin-top:4%; margin-left:-50%; width:146%" required></td>
+            </tr>
+            <tr>
+                <td><label for="company_contact">Company Contact</label></td>
+                <td><input type="number" id="company_contact" minlength="10" maxlength="10" name="company_contact" style="width:93%; margin-top:4%; margin-left:-50%; width:146%" placeholder="contact" maxlength="10" required></td>
+            </tr>
+        </table>
+        <div class="sub">
+        <button class="button" style="width:50%" type="submit"  onclick="validate()">Submit</button>
+    </div>    
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LOAN_APK</title>   
+<link rel="stylesheet" href="kyc.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </head>
+<body>
+    <div class="bg-container ">
+        <h1 style="text-decoration: underline; text-align: center;">KYC</h1>
+        <form id="myForm" action="../loan.html">
+            <div class="row">
+                <div class="col-12 label">
+                <label for="pan">Uplaod Pan Card Image</label>
+                <input type="file" id="pan" name="file" class="file" style="color:black;" onchange="return valid()" required><br><br>
+                </div> 
+            </div>
+            <div class="row fname">
+                <div class="col-4 label">
+                    <label for="ifsc">First<br>Name</label>
+                </div>
+                <div class="col-8 input">
+                    <input type="text" id="firstname" class="detail" name="firstname" placeholder="First Name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 label">
+                    <label for="ifsc">Middle<br>Name</label>
+                </div>
+                <div class="col-8 input">
+                    <input type="text" id="firstname" class="detail" name="middlename" placeholder="Middle Name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 label">
+                    <label for="ifsc">Surname</label>
+                </div>
+                <div class="col-8 input">
+                    <input type="text" id="surname" class="detail" name="surname" placeholder="Last Name" required><br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 label">
+                    <label for="upi">Pancard<br>Number</label>
+                </div>
+                <div class="col-8 input">
+                    <input type="text" id="pancardnumber" class="detail" name="pancardnumber" placeholder="XXX-XXX-XXXX" maxlength="10" onkeyup="pancard(this.value)" required>
+                    <b style="color:red"><span id="status"></span></b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 label">
+                    <label for="dob">Date of<br>Birth</label>
+                </div>
+                <div class="col-8 input">
+                    <input type="date" class="detail" id="dob" name="dob" required>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-4">
+            <label for="gender"  required>Gender</label>
+            </div>
+            <div class="col-8">
+            <input type="radio" id="male" name="gender">
+            <label for="gender">Male</label>
+            <input type="radio" id="female" name="gender">
+            <label for="gender">Female</label><br>
+            <input type="radio" id="nts" name="gender">    
+            <label for="gender">Prefer(Not to say)</label>
+            </div>
+           <br><br>
+            <button class="button" type="submit"  onclick="validate()">Submit</button>
+        </div>
+        </form>
+    </div>
+    <script>
+        function valid(){
+            var pan=document.getElementById('pan');
+            var fileInput=pan.value;
+            var allowedExtensions =/(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            if (!allowedExtensions.exec(fileInput)) {
+                alert('Invalid file type');
+                fileInput.value = '';
+                return false;
+            }
+            else 
+            {
+                // Image preview
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById(
+                            'imagePreview').innerHTML = 
+                            '<img src="' + e.target.result
+                            + '"/>';
+                    };
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
+            }
+        }
+        function pancard(pan) {
+            var pan=pancardnumber.value;
+            var regpan = /^([A-Z]){5}([0-9]){4}([A-Z]){1}?$/;
+            if (regpan.test(pan) == false) {
+                document.getElementById("status").innerHTML = "PAN Number Not Valid.";
+            }
+            else {
+                document.getElementById("status").innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>
